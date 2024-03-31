@@ -1,0 +1,1097 @@
+1.write a program in solidity. To check if the roll number entered by the user is in the range of roll numbers in an array and if the number is even then allow the student else deny.
+
+pragma solidity >=0.6.12 <0.9.0;
+
+contract Check{
+    uint256 irollno;
+    uint256[] arr=[2,3,4,5,6,7,8,9,10];
+    function store(uint256 a)public{
+        irollno=a;
+    }
+
+    function Result()public view returns(string memory){
+        for(uint256 i=0;i<arr.length;i++){
+            if(irollno==arr[i]){
+                if(irollno %2==0){
+                    return "Allowed";
+
+                }else{
+                    return "Denied";
+                }
+            }
+        }
+        return "No. not in array";
+
+    }
+}
+
+
+2.To overload the function of bitwise AND operation and logical AND operation. On the inputs taken from the user.
+
+pragma solidity >=0.6.12 <0.9.0;
+
+contract FunctionOverload{
+    uint256 n1;
+    uint256 n2;
+    function store(uint256 a,uint256 b)public{
+        n1=a;
+        n2=b;
+    } 
+    function And()public view returns(uint256){
+        return n1 & n2;
+    }
+    function And(uint a)public view returns(bool){
+        return n1>a && n2<a;
+    }
+    }
+
+
+3.Write a solidity program Take 2 inputs from the user and determine weather the value of 1st number is greater than the second number if greater then find AND operation values else find the OR operation.
+
+pragma solidity >=0.6.12 <0.9.0;
+
+contract Check{
+    uint256 num1;
+    uint256 num2;
+    function store(uint256 a,uint256 b)public{
+        num1=a;
+        num2=b;
+       
+    }
+
+    function Output()public view returns(uint256){
+        if (num1>num2){
+            return num1 & num2;
+        }
+        else{
+            return num1 | num2;
+        }
+    }
+
+}
+
+4.Write a solidity program To find addition of any 5 numbers of an array of 10 numbers with using the index position.
+
+pragma solidity >=0.6.12 <0.9.0;
+
+contract Main{
+    uint256 public sum;
+    uint256[]  Arr=[1,2,3,4,5,6,7,8,9,10];
+    
+    function calculate()public{
+        sum=0;
+        //for (uint256 i=5;i<Arr.length;i++){
+       //     sum += Arr[i];
+      //  }
+//
+        for (uint256 i=0;i<Arr.length;i+2){
+            sum +=Arr[i];
+        }
+         
+    }
+    function Result()public view returns(uint256){
+                return sum;
+        }
+
+}
+
+5. Write a program in solidity addition of 2 numbers is greater than any one of the number and then find the product of lesser number and not the greater number
+
+//SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.2 <0.9.0;
+contract prac6b {
+ 
+ function Check(int256 num1, int256 num2) public pure returns (int256 product){
+ if ((num1 + num2) > num1 || (num1 + num2) > num2) {
+ 
+ if (num1 < num2) {
+ product = num1 * ~num2; 
+ } else {
+ product = num2 * ~num1; 
+ }
+ return product;
+ } 
+ }
+}
+
+
+6.Write a solidity program to find sum of the array of 10 numbers taken from the user and also find the AND operation of 1,3,5,7,9th no. of an array and Or operation of even position no. and hence find the product of the results and create a smart contract to find whether the product is the part of product of an array or not
+
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.12 <0.9.0;
+
+contract Main{
+    uint256 sum;
+    uint256[] arr=[1,2,3,4,5,6,7,8,9,10];
+    uint256 even;
+    uint256 odd;
+    uint256 productarr;
+    uint256 product;
+function calculate()public returns(string memory){
+    sum=0;
+    even=arr[1];
+    odd=arr[0];
+    for (uint256 i=0;i<arr.length;i++){
+        sum += arr[i];
+        if (i % 2 == 0){
+             even |= arr[i];
+        }else{
+            odd &= arr[i];
+        }
+        productarr *= arr[i];
+        
+    }   
+    product=even*odd;
+}
+function summ()public view returns(uint256){
+    return sum;
+}
+function ResultoforOperation()public view returns(uint256){
+    return even;
+}
+function ResultofandOperation()public view returns(uint256){
+    return odd;
+}
+function check()public view returns(string memory){
+    if(productarr==product){
+        return "Number in array";
+    }else{
+        return"Number not in array";
+    }
+}
+}
+
+
+7. Write a solidarity program to find the modulas of addition of two numbers with DD and modulas of multiplication of two numbers with MM which are achived bye performing and operation of your DD and MM from your date of Birth and OR operation of your YY and YY from
+
+/ SPDX-License-Identifier: MIT
+pragma solidity >=0.6.12 <0.9.0;
+contract DDMM{
+   
+    uint256 dd;
+    uint256 mm;
+    uint256 yy1;
+    uint256 yy2;
+    uint256 and;
+    uint256 or;
+    function accept_input(uint256 date,uint256 month,uint256 year_half, uint256 second_half) public{
+        dd=date;
+        mm=month;
+        yy1=year_half;
+        yy2=second_half;
+        and=dd&mm;
+        or=yy1|yy2;
+    }
+    function add_mod() public view returns(uint256){
+        return addmod(and,or,dd);
+    }
+    function mul_mod() public view returns(uint256){
+        return mulmod(and,or,mm);
+    }
+}
+
+year of birth
+
+Where DD, MM, year of birth must be entered by the user.
+
+8.Write a solidity program to overload bitwise or operator for 2 3 and 4 parameters and then perform multiplication on the values passed in to 2 parameters, addition of the values passed in 3 parameters and subtraction of values in 4 parameters.
+
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.2 <0.9.0;
+
+contract eight_overload{
+    int256 or2;
+    int256 or3;
+    int256 or4;
+    int256 or2_mul;
+    int256 or3_add;
+    int256 or4_sub;
+    int256[6] array ;
+       
+    function or(int256 num1,int256 num2) public{
+        or2= num1 | num2;
+        or2_mul=num1*num2;
+        array[0]=or2;
+        array[1]=or2_mul;
+    }
+    function or(int256 num11,int256 num12,int256 num13) public{
+        or3_add= num11 + num12 + num13;
+        or3= num11 | num12 | num13;
+        array[2]=or3;
+        array[3]=or3_add;
+        }
+    function or(int256 num21,int256 num22,int256 num23,int256 num24) public{
+        or4_sub=num21-num22;
+        or4=num21|num22|num23|num24;
+        array[4]=or4;
+        array[5]=or4_sub;
+    }
+
+    function show_result() public view returns(int256[6] memory){
+        return array;
+    }
+
+}
+
+9.Write a solidarity program to find whether a number is even or odd and another number is prime or composite and hence find the bit vise AND and bit vise OR of the results of product of the 2 numbers and if the result is even then allow the student else denied.
+ 
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.2 <0.9.0;
+contract Storage {
+uint256 number;
+function func1(uint256 num) public pure returns (string memory){
+
+if(num %2==0)
+{
+return "num is even";
+}
+else {
+return "num is odd";
+}
+}
+function func2(uint num1) public pure returns (string memory){
+
+uint256 i;
+uint256 count=0;
+for(i = 1; i <= num1; i++) {
+if (num1 % i == 0)
+{
+count++;
+}
+}
+if (count >3)
+{
+return "Number is composite";
+}
+else if(count==2)
+{
+return "number is prime";
+
+}
+else
+{
+return "neither a prime nor a composite";
+}
+
+}
+function func3(uint num,uint num1) public pure returns (string memory){
+
+uint256 n1;
+uint256 n2;
+uint256 prod;
+n1=num;
+n2=num1;
+uint256 bitand= n1 & n2;
+uint256 bitor= n1 | n2;
+prod= bitand * bitor;
+if(prod %2==0)
+{
+return "allow the student";
+}
+else {
+return "deny the student";
+}
+
+}
+}
+
+
+
+Assignment:Create a smart contract which takes your date of birth as input separately for DD, MM, YY and YY and
+perform the following using the inputs taken:
+1. Overload Bitwise AND Operation
+2. Demonstrate Mathematical Function
+3. Demonstrate Comparison operator along with Array
+4. Demonstrate Inheritance for Calculator.
+
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.2 <0.9.0;
+contract DOB {
+uint8 public day;
+uint8 public month;
+uint16 public year;
+constructor(uint8 _day,uint8 _month, uint16 _year){
+day = _day;
+month = _month;
+year = _year;
+}
+//Overload bitwise AND Operation
+function bitwiseAnd() public view returns(uint){
+return day & month;
+}
+//Mathematical Function
+function calculateAge(uint16 currentYear) public view returns(uint16){
+return currentYear - year;
+}
+//Comparison operator along with Array
+function isLeapYear() public view returns(bool){
+uint16[] memory leapYears = new uint16[](4);
+leapYears[0] = 2000;
+leapYears[1] = 2004;
+leapYears[2] = 2008;
+leapYears[3] = 2012;
+for(uint256 i=0;i<leapYears.length;i++){
+if(year == leapYears[i]){
+return true;
+}
+}
+return false;
+}
+}
+//Inheritance for calculator
+contract Calculator is DOB{
+constructor(uint8 _day,uint8 _month,uint16 _year) DOB(_day,_month,_year) {}
+function add () public view returns (uint){
+return day + month;
+}
+}
+
+
+
+
+P1
+A] A simple client class that generates the private and public keys by using the built-in python RSA algorithm and test it.
+
+pip install pycryptodome
+
+import Crypto
+from Crypto.PublicKey import RSA
+from Crypto.Signature import PKCS1_v1_5
+import binascii
+
+print("abc")
+class Client:
+    def __init__(self):
+        random = Crypto.Random.new().read
+        self._private_key = RSA.generate(1024,random)
+        self._public_key = self._private_key.publickey()
+        self._signer = PKCS1_v1_5.new(self._private_key)
+
+    @property
+    def identity(self):
+        return binascii.hexlify(self._public_key.exportKey(format='DER')).decode('ascii')
+
+Shubham = Client()
+print("abc's Public Key: ", Shubham.identity)
+
+
+
+B] Aim : A transaction class to send and receive money and test it.
+
+Code :
+
+import datetime
+import collections
+from Crypto.Hash import SHA
+from Crypto.PublicKey import RSA
+from Crypto.Signature import PKCS1_v1_5
+import binascii
+from prac1 import Client
+
+print("abc")
+class Transaction:
+    def __init__(self, sender, recipient, value):
+        self.sender = sender
+        self.recipient = recipient
+        self.value = value
+        self.time = datetime.datetime.now()
+
+    def to_dict(self):
+        if self.sender == "Genesis":
+            identity = "Genesis"
+        else:
+            identity = self.sender.identity
+        return collections.OrderedDict({
+            'sender': identity,
+            'recipient': self.recipient,
+            'value': self.value,
+            'time' : self.time})
+
+    def sign_transaction(self):
+        private_key = self.sender._private_key
+        signer = PKCS1_v1_5.new(private_key)
+        h = SHA.new(str(self.to_dict()).encode('utf8'))
+        return binascii.hexlify(signer.sign(h)).decode('ascii')
+
+abc = Client()
+dce = Client()
+
+trans = Transaction(abc, dce.identity, 5.0)
+signature = trans.sign_transaction()
+print (signature)
+
+
+
+C] Aim : Create multiple transactions and display them.
+
+Code :
+
+from prac1b import *
+
+print("abc")
+def display_transaction(transaction):
+    dict = transaction.to_dict()
+    print("Sender: "+ str(dict['sender']))
+    print('-----')
+    print("Recipient: "+ str(dict['recipient']))
+    print('-----')
+    print("Value: "+ str(dict['value']))
+    print('-----')
+    print("Time: "+ str(dict['time']))
+    print('-----')
+transaction = []
+Sahil = Client()
+Omkar = Client()
+t1 = Transaction(Shubham,Soham.identity,15.0)
+t1.sign_transaction()
+transaction.append(t1)
+t2 = Transaction(Shubham,Sahil.identity,6.0)
+t2.sign_transaction()
+transaction.append(t2)
+t3 = Transaction(Soham,Omkar.identity,2.0)
+t3.sign_transaction()
+transaction.append(t3)
+t4 = Transaction(Sahil,Soham.identity,4.0)
+t4.sign_transaction()
+transaction.append(t4)
+for transaction in transaction:
+    display_transaction(transaction)
+    print("-----")
+
+
+D] Aim : Create a blockchain, a genesis block and execute it.
+
+Code :
+
+import datetime
+import hashlib
+
+class Block:
+    def __init__(self,previous_block_hash,data,timestamp):
+        self.previous_block_hash = previous_block_hash
+        self.data = data
+        self.timestamp = timestamp
+        self.hash = self.get_hash()
+
+    @staticmethod
+    def create_genesis_block():
+        return Block("0","0",datetime.datetime.now())
+
+    def get_hash(self):
+        header = (str(self.previous_block_hash)+str(self.data)+str(self.timestamp))
+        inner_hash = hashlib.sha256(header.encode()).hexdigest().encode()
+        comp_hash = hashlib.sha256(inner_hash).hexdigest()
+        return comp_hash
+
+#from dummyblock import Block
+import datetime
+print("abc")
+number_of_blocks = 14
+Blockchain = [Block.create_genesis_block()]
+print("Shubham\'s Genesis Block is Created")
+print("Hash: %s" %Blockchain[0].hash)
+for i in range(1, number_of_blocks):
+    Blockchain.append(Block(Blockchain[i-1].hash,"Block number %d"%i,datetime.datetime.now()))
+    print("Shubham %d block created"%i)
+    print("Hash: %s"%Blockchain[-i].hash)
+
+
+
+E] Aim : Create a mining function and test it.
+
+Code :
+
+from hashlib import sha256
+
+MAX_NONCE = 100000000000
+print("abc")
+
+def SHA256(text):
+    return sha256(text.encode("ascii")).hexdigest()
+
+def mine(block_number,transactions,previous_hash,prefix_zeros):
+    prefix_str = '0'*prefix_zeros
+    for nonce in range(MAX_NONCE):
+        text = str(block_number)+transactions+previous_hash+str(nonce)
+        new_hash = SHA256(text)
+        if new_hash.startswith(prefix_str):
+            print(f"Yay! Successfully mined bitcoins with nonce value:{nonce}")
+            return new_hash
+    raise BaseExecption(f"Couldn't find correct has after trying {MAX_NONCE}times")
+if __name__ == '__main__':
+    transactions ='''
+    Dhaval->Bhavan->20,
+    Mando->Cara->45
+    '''
+    difficulty = 4
+
+    import time
+    start = time.time()
+    print("start mining")
+    new_hash = mine(5,transactions,'a34e0074f69db033348600edbe8139c96ecc389af7ff8483bc2d9f180c02754c',difficulty)
+    total_time = str((time.time()-start))
+    print(f'end mining. Mining tool: {total_time} seconds')
+    print(new_hash)
+
+
+F] Aim : Add blocks to the minor and dump the blockchain.
+
+Code :
+
+import datetime
+import hashlib
+
+print("05_Shubham")
+class Block:
+    blockNo = 0
+    data = None
+    next = None
+    hash = None
+    nonce = 0
+    previous_hash = 0x0
+    timestamp = datetime.datetime.now()
+
+    def __init__(self,data):
+        self.data = data
+
+    def hash(self):
+        h = hashlib.sha256()
+        h.update(
+            str(self.nonce).encode('utf-8')+
+            str(self.data).encode('utf-8')+
+            str(self.previous_hash).encode('utf-8')+
+            str(self.timestamp).encode('utf-8')+
+            str(self.blockNo).encode('utf-8')
+            )
+        return h.hexdigest()
+
+    def __str__(self):
+        return "Block Hash: "+str(self.hash())+"\n Block No: " + str(self.blockNo)+"\n Block Data: " + str(self.data)+"\n Hashes: "+str(self.nonce)+"\n-----------"
+
+class Blockchain:
+    diff = 20
+    maxNonce = 2 ** 32
+    target = 2 ** (256-diff)
+
+    block=Block("Genesis")
+    dummy = head = block
+
+    def add(self,block):
+        block.previous_hash = self.block.hash()
+        block.blockNo = self.block.blockNo + 1
+        self.block.next = block
+        self.block = self.block.next
+    def mine(self,block):
+        for n in range(self.maxNonce):
+            if int(block.hash(),16) <= self.target:
+                self.add(block)
+                print(block)
+                break
+            
+
+else:
+                block.nonce +=1
+
+blockchain = Blockchain()
+
+for n in range(10):
+    blockchain.mine(Block("Block"+str(n+1)))
+
+while blockchain.head is not None:
+    print(blockchain.head)
+    blockchain.head = blockchain.head.next
+
+
+
+
+2B]Increment Decrement Counter
+
+Code :
+
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.4;
+
+contract TestCounter {
+    int private count = 0;
+    function incrementCounter() public {
+        count += 1;
+    }
+    function decrementCounter() public {
+        count -= 1;
+    }
+
+    function getCount() public view returns (int) {
+        return count;
+    }
+}
+
+
+
+2C]: Calculator in Solidity.
+
+Code :
+
+
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+contract Calculator {
+        uint c;
+
+    function add(uint a, uint b) public {
+        c = a + b;
+    }
+
+    function sub(uint a, uint b) public {
+        c = a - b;
+    }
+
+    function mul(uint a, uint b) public {
+        c = a * b;
+    }
+
+    function div(uint a, uint b) public {
+            c = a / b;
+    }
+
+    function getResult() public view returns (uint x) {
+        return c;
+    }
+
+}
+
+3A]Operators (Logical, Assignment, Bitwise, Ternary, Comparison)
+
+Code :
+Comparison Operators : 
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+//Comparison 
+contract ComparisonOperators {
+    uint256 public result;
+
+    // Equality and Inequality
+    function isEqual(uint256 a, uint256 b) public {
+        result = (a == b) ? 1 : 0; // Equal
+        
+    }
+
+    function isNotEqual(uint256 a, uint256 b) public {
+        result = (a != b) ? 1 : 0; // Not Equal
+    }
+
+    // Greater than and Less than
+    function GreaterThan(uint256 a, uint256 b) public {
+        result = (a > b) ? 1 : 0; // Greater than
+    }
+
+    function LessThan(uint256 a, uint256 b) public {
+        result = (a < b) ? 1 : 0; // Less than
+    }
+
+    // Greater than or equal to and Less than or equal to
+    function isGreaterThanOrEqual(uint256 a, uint256 b) public {
+        result = (a >= b) ? 1 : 0; // Greater than or equal to
+    }
+
+    function isLessThanOrEqual(uint256 a, uint256 b) public {
+        result = (a <= b) ? 1 : 0; // Less than or equal to
+    }
+}
+
+
+3B]Ternary Operator :
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+    //Ternary Operator
+contract Ternary_Opeator {
+    function Ternary() public pure returns (string memory) {
+         
+        // This code returns a string 
+        // if a > b we return "a is bigger"
+        // else we return "b is bigger"
+        uint256 a = 100;
+        uint256 b = 200;
+        return (a > b ? "a is bigger" : "b is bigger");
+    }
+
+    function chain_ternary() public pure returns (string memory) {
+          
+        // This code returns a string 
+        // if a > b we return "a is bigger"
+        // else if a == b we return "a and b are equal"
+        // else b > a we return "b is bigger" 
+        uint256 a = 100;
+        uint256 b = 100;
+       
+        return (a > b ? "a is bigger" : ( (a==b) ? 
+                "a and b are equal" : "b is bigger" ) );
+    }
+}
+
+
+3C]Bitwise Operator :
+
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Bitwise {
+ 
+    // Declaring variables
+    uint16 public a = 20;
+    uint16 public b = 10;
+ 
+    // ‘&’ performs a Boolean AND operation
+    
+    uint16 public and = a & b;
+ 
+    // '|'performs a Boolean OR operation
+    uint16 public or = a | b;
+ 
+    // '^' performs a Boolean XOR operation
+
+    uint16 public xor = a ^ b;
+ 
+    // '<<' It moves all the bits in its first operand to the left
+    uint16 public leftshift = a << b;
+ 
+    // '>>' The left operand's value is moved right
+    uint16 public rightshift = a >> b;
+   
+    // '~' It is a unary operator and operates by reversing
+    uint16 public not = ~a ;
+     
+}
+
+
+4A]Functions (Overloading [Bitwise and Arithmetic], Mathematical)
+
+Code : Arithmetic 
+
+// SPDX-License-Identifier: MIT
+pragma solidity >= 0.8.2 < 0.9.0;
+contract ArithmeticFunctionOverloading {
+    function getSum(uint a, uint b) public pure returns(uint){
+        return a + b;
+    }
+    function getSum(uint a, uint b, uint c) public pure returns(uint){
+        return a + b + c;
+    }
+    function callSumWithTwoArguments() public pure returns(uint){
+        return getSum(4,5);
+    }
+    function callSumWithThreeArguments() public pure returns(uint){
+        return getSum(4,5,6);
+    }
+}
+
+4B]Code : Bitwise
+
+// SPDX-License-Identifier: MIT
+pragma solidity >= 0.8.2 < 0.9.0;
+contract BitwiseFunctionOverloading {
+    function getBitwiseAnd(uint a, uint b) public pure returns(uint){
+        return a & b;
+    }
+    function getBitwiseAnd(uint a, uint b, uint c) public pure
+        returns(uint){
+        return a & b & c;
+    }
+    function BitwiseANDwith2arguments() public pure returns(uint){
+        return getBitwiseAnd(1,1);
+    }
+    function BitwiseANDwith3arguments() public pure returns(uint){
+        return getBitwiseAnd(1,1,1);
+    }
+}
+
+
+4C]
+Code : Mathematical
+
+// SPDX-License-Identifier: MIT
+pragma solidity >= 0.8.2 < 0.9.0;
+contract MathFunction{
+    function AddMod() public pure returns(uint){
+        return addmod(7, 5, 6);
+    }
+    function MulMod() public pure returns(uint){
+        return mulmod(7, 5, 6);
+    }
+}
+
+
+
+
+5] Roll no. and classroom 
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+contract PatkarVardeCollege {
+    struct Student {
+    string name;
+    uint256 rollNumber;
+    string class;
+ }
+ // Function to get the allocated classroom for a specific student
+    function getStudentClassroom(uint256 rollNumber) public pure
+        returns (uint256) {
+        require(rollNumber >= 1 && rollNumber <= 30, "Invalid rollnumber");
+        if (rollNumber >= 1 && rollNumber <= 5) {
+            return 45;
+        } else if (rollNumber >= 6 && rollNumber <= 10) {
+            return 46;
+        } else if (rollNumber >= 11 && rollNumber <= 15) {
+            return 47;
+        } else if (rollNumber >= 16 && rollNumber <= 20) {
+            return 48;
+        } else if (rollNumber >= 21 && rollNumber <= 25) {
+            return 49;
+        } else {
+        // For roll numbers 26 to 30
+            return 0; // No specific classroom allocated
+        }
+    }
+}
+
+
+PRACTICAL NO :- 6 (A)
+
+
+Aim : Write a Solidity Program to find whether a number is EVEN or ODD and another number is PRIME or COMPOSITE and hence find the bitwise AND and bitwise OR of the result of the product of the two numbers and if the result is EVEN then display a message, "CONGRATULATION, YOU ARE SUCCESSFUL!!!"
+
+Code :
+
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.7.0 <0.9.0;
+contract TwoNumCheck {
+    function isEven(uint num) public pure returns (bool) {
+        return (num & 1) == 0; // bitwise AND with 1 checks if the least significant bit is 0
+    }
+    function isPrime(uint num) public pure returns (bool) {
+        if (num <= 1) {
+            return false; // 1 and 0 are not prime
+        }
+        for (uint i = 2; i < num; i++) {
+            if (num % i == 0) {
+                return false; // divisible by any other number than 1 or itself
+            }
+        }
+    return true; // passed all checks
+    }
+    function checkNums(uint num1, uint num2) public pure returns
+        (string memory) {
+        string memory evenOdd1 = isEven(num1) ? "even" : "odd";
+        string memory evenOdd2 = isEven(num2) ? "even" : "odd";
+        string memory primeComposite1 = isPrime(num1) ? "prime" : "composite";
+        string memory primeComposite2 = isPrime(num2) ? "prime" : "composite";
+        uint product = num1 * num2;
+        bool isProductEven = isEven(product);
+        if (isProductEven) {
+            return string.concat("Number 1 is ", evenOdd1, " and ", primeComposite1, ",Number 2 is ", evenOdd2, " and ", primeComposite2,". Their product is even. CONGRATULATION, YOU ARESUCCESSFUL!!!");
+ } else {
+    return string.concat("Number 1 is ", evenOdd1, " and ", primeComposite1, ",Number 2 is ", evenOdd2, " and ", primeComposite2,". Their product is odd.");
+ }
+ }
+}
+
+
+PRACTICAL NO :- 6 (B)
+
+Aim : Write a solidity program to determine IF addition of two number is greater than any one of the number then find the product of the lesser number and NOT of the greater Number ELSE find the product of the greater number and NOT of lesser number.
+
+Code :
+
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.7.0 <0.9.0;
+contract NumberOperation{
+    int256 num1;
+    int256 num2;
+    function store(int256 snum1, int256 snum2) public {
+        num1 = snum1;
+        num2 = snum2;
+    }
+    function Operator () public view returns (int256 sum){
+        sum = num1 + num2;
+        if (sum > num1 || sum > num2){
+            if (num1 < num2)
+            {
+                return num1 * ~num2;
+            }
+            else{
+                return num2 * ~num1;
+            }
+        }
+    }
+}
+
+
+PRACTICAL NO :- 7
+
+Aim : Pure and View Function.
+
+Pure Function 
+
+Code :
+
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract CBPureFunctionsdemo{
+    function getResult() public pure returns (uint result_multiply, uint result_sum) {
+        uint a = 2000;
+        uint b = 10;
+        result_multiply = a*b;
+        result_sum = a+b;
+        }
+}
+
+
+View Function 
+
+Code :
+
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract CBTest {
+    function getResult() public pure returns(uint product, uint sum){
+        uint a = 41;
+        uint b = 9;
+        product = a * b;
+        sum = a + b;
+    }
+}
+
+
+PRACTICAL NO :- 8
+
+Aim : Withdrawal Pattern and Restricted Access in Solidity.
+
+Withdrawal Pattern :
+
+Code :
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract CBWithdrawalPatten {
+    address public richest;
+    uint public mostSent;
+    mapping(address => uint) pendingWithdrawals;
+    constructor()  payable {
+        richest = msg.sender;
+        mostSent = msg.value;
+    }
+    function becomeRichest() public payable returns (bool) { 
+    if (msg.value> mostSent) {
+        pendingWithdrawals[richest] += msg.value;
+        richest = msg.sender;
+        mostSent = msg.value;
+        return true;
+    } else {
+        return false;
+        }
+    }
+    function withdraw() public {
+        uint amount = pendingWithdrawals [msg.sender]; 
+        pendingWithdrawals [msg.sender] = 0; 
+        payable(msg.sender).transfer(amount);
+    }
+}
+
+
+8B] Restricted Access :
+Code:
+
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract CBRestrictedAccess {
+    address public owner = msg.sender;
+    uint public creationTime = block.timestamp;
+    modifier onlyBy(address _account){
+        require(
+            msg.sender == _account,
+            "Sender not authorized"
+        );
+        _;
+    }
+    function changeOwner(address _newOwner) public onlyBy(owner){
+        owner = _newOwner;
+    }
+    modifier onlyAfter(uint _time){
+        require(
+            block.timestamp >= _time,
+            "Function called too early."
+            );
+            _;
+    }
+    function disown() public onlyBy(owner) onlyAfter(creationTime + 6 weeks){
+        delete owner;
+    }
+    modifier costs(uint _amount){
+        require(
+            msg.value >= _amount,
+            "Not enough Ether provided"
+        );
+        _;
+        if (msg.value > _amount)
+        
+        payable(msg.sender).transfer(msg.value - _amount);
+    }
+    function forceOwnerChange(address _newOwner) public payable costs(200 ether){
+        owner = _newOwner;
+        if (uint160(owner)&0==1)return;
+    }
+}
+
+
+
+
+PRACTICAL NO :- 9
+
+Aim : Inheritance in Solidity.
+
+Code :
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract C{
+    //private state variable
+    uint private data;
+    //public state variable
+    uint public info;
+    //constructor
+    constructor()   {
+        info = 10;
+    }
+    //private function
+    function increment(uint a) private pure returns(uint) { return a+1; }
+    //public function
+    function updateData(uint a) public { data = a;}
+    function getData() public view returns(uint) {return data;}
+    function compute(uint a, uint b) internal  pure returns(uint) {return a+b;}
+}
+//Derived Contract
+contract E is C{
+    uint private result;
+    C private c;
+    constructor() {
+        c = new C();
+    }
+    function getComputedResult() public {
+        result = compute(3, 5);
+    }
+    function getResult() public view returns(uint) {return result;}
+    function getDatafromC() public view returns(uint) {return c.info();}
+}
+
